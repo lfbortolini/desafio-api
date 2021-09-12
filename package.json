@@ -1,0 +1,25 @@
+{
+  "name": "desafio-api",
+  "version": "1.0.0",
+  "description": "Desafio técnico - Anestech",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfbortolini/desafio-api.git"
+  },
+  "author": "Luiz Fernando Bortolini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lfbortolini/desafio-api/issues"
+  },
+  "homepage": "https://github.com/lfbortolini/desafio-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
