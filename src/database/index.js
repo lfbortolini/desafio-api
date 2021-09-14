@@ -1,24 +1,14 @@
-import Sequelize from "sequelize";
-import configDB from "../config/database";
-import User from "../models/User";
-import Task from "../models/Task";
+const Sequelize = require("sequelize");
+const configDB = require("../config/database");
+const User = require("../models/User");
+const Task = require("../models/Task");
 
-const models = [User, Task];
+const connection = new Sequelize(configDB);
 
-class Database {
-  constructor() {
-    this.init();
-  }
+User.init(connection);
+Task.init(connection);
 
-  init() {
-    this.connection = new Sequelize(configDB);
+User.associate(connection.models);
+Task.associate(connection.models);
 
-    models.map((model) => model.init(this.connection));
-
-    models.map(
-      (model) => model.associate && model.associate(this.connection.models)
-    );
-  }
-}
-
-export default new Database();
+module.exports = connection;

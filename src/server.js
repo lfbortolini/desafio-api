@@ -1,4 +1,6 @@
 const app = require("./app");
 
-const port = process.env.port || 3030;
-app.listen(port)
+require("./database");
+
+const port = process.env.port || 3031;
+app.listen(port);

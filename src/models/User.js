@@ -1,15 +1,15 @@
-import Sequelize, { Model } from "sequelize";
-import bcrypt from "bcrypt";
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
-        email: Sequelize.STRING,
-        role: Sequelize.ENUM("admin", "agent"),
-        password: Sequelize.VIRTUAL,
-        password_hash: Sequelize.STRING,
+        name: DataTypes.STRING,
+        email: DataTypes.STRING,
+        role: DataTypes.ENUM("admin", "agent"),
+        password: DataTypes.VIRTUAL,
+        password_hash: DataTypes.STRING,
       },
       {
         sequelize,
