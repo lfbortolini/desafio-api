@@ -1,10 +1,7 @@
 const Task = require("../models/Task");
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 const yup = require("yup");
 const { v4: uuid_v4 } = require("uuid");
-const { update } = require("../models/Task");
-const { use } = require("../routes");
 
 module.exports = {
   async findAll(req, res) {
