@@ -1,17 +1,17 @@
 "use strict";
-const { uuid } = require("uuidv4");
+const { v4: uuid_v4 } = require("uuid");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const passwordHash = await bcrypt.hash("123456", 6);
+    const passwordHash = await bcrypt.hash("123456", 8);
 
     await queryInterface.bulkInsert(
       "users",
       [
         {
-          id: uuid(),
+          id: uuid_v4(),
           name: "admin",
           email: "admin@admin.com",
           role: "admin",
