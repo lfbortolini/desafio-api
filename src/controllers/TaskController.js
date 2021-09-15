@@ -1,6 +1,5 @@
 const { Op } = require("sequelize");
 const Task = require("../models/Task");
-const User = require("../models/User");
 
 module.exports = {
   async findAll(req, res) {},

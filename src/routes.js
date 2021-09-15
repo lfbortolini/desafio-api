@@ -2,6 +2,7 @@ const express = require("express");
 const UserController = require("./controllers/UserController");
 const SessionController = require("./controllers/SessionController");
 const TaskController = require("./controllers/TaskController");
+const IndicatorsController = require("./controllers/IndicatorsController");
 
 const { login, userAdmin, correctUser } = require("./middleware/auth");
 
@@ -38,6 +39,34 @@ routes.patch(
   login,
   correctUser,
   TaskController.checkout
+);
+
+routes.get(
+  "/indicators/qt-completed-tasks",
+  login,
+  userAdmin,
+  IndicatorsController.qtCompletedTasks
+);
+
+routes.get(
+  "/indicators/qt-completed-tasks-by-user",
+  login,
+  userAdmin,
+  IndicatorsController.qtCompletedTasksByUser
+);
+
+routes.get(
+  "/indicators/time-between-open-inprogress",
+  login,
+  userAdmin,
+  IndicatorsController.timeBetweenOpenAndInProgress
+);
+
+routes.get(
+  "/indicators/time-between-inprogress-done",
+  login,
+  userAdmin,
+  IndicatorsController.timeBetweenInProgressAndDone
 );
 
 module.exports = routes;
