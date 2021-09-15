@@ -141,9 +141,9 @@ module.exports = {
     }
 
     try {
-      await user.update(req.body);
+      const result = await user.update(req.body);
 
-      return res.status(204).json();
+      return res.status(200).json(result);
     } catch (error) {
       return res.status(500).json({ error: "Failed to update user" });
     }
